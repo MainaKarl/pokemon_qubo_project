@@ -9,6 +9,8 @@ This project demonstrates how to use a Quadratic Unconstrained Binary Optimizati
 - Utilizes a QUBO matrix to formulate team selection constraints.
 - Solves the QUBO problem using simulated annealing for optimal team selection.
 - Outputs a balanced Pokémon team based on selected constraints (e.g., type coverage).
+- Visualizes the QUBO matrix as a heatmap to better understand its structure.
+- Visualizes the type distribution of the selected Pokémon team using bar charts.
 
 ## File Structure
 ```
@@ -23,6 +25,10 @@ project-root/
 |-- utils/
 |   |-- api_client.py             # Fetches data from the PokéAPI
 |   |-- data_utils.py             # Processes Pokémon data and calculates type weaknesses
+|
+|-- visualization/
+|   |-- qubo_heatmap.py           # Generates heatmap visualization for QUBO matrix
+|   |-- team_distribution.py      # Generates bar chart for team type distribution
 |
 |-- main.py                       # Orchestrates the entire process
 |-- requirements.txt              # Project dependencies
@@ -66,7 +72,7 @@ If using the offline dataset, ensure `data/pokemon_dataset.json` is populated.
    python main.py
    ```
 2. Follow the prompts to select constraints (e.g., team size, type preferences).
-3. The script outputs the optimized Pokémon team.
+3. The script outputs the optimized Pokémon team and visualizations.
 
 ## How It Works
 1. **Fetch or Load Data**: 
@@ -79,8 +85,14 @@ If using the offline dataset, ensure `data/pokemon_dataset.json` is populated.
 3. **Generate QUBO Matrix**: 
    - The `qubo_matrix.py` script constructs the QUBO matrix based on constraints such as type diversity, coverage, and balance.
 
-4. **Solve QUBO**: 
+4. **Visualize QUBO Matrix**: 
+   - The `qubo_heatmap.py` script generates a heatmap to visualize the QUBO matrix structure.
+
+5. **Solve QUBO**: 
    - The `qubo_solver.py` script uses simulated annealing to solve the QUBO problem and output an optimal team.
+
+6. **Visualize Team Distribution**:
+   - The `team_distribution.py` script generates a bar chart showing the type distribution of the selected Pokémon team.
 
 ## Example Output
 ```
@@ -92,6 +104,12 @@ Optimal Team:
 5. Gengar (Ghost/Poison)
 ```
 
+### QUBO Heatmap:
+A heatmap showing the QUBO matrix structure to understand relationships between Pokémon selection constraints.
+
+### Team Distribution:
+A bar chart showing the count of Pokémon types in the selected team for better visualization of team diversity.
+
 ## Customization
 - Update the constraints in `qubo_matrix.py` to modify the team selection logic.
 - Use different parameters in `qubo_solver.py` to adjust the optimization process.
@@ -99,6 +117,7 @@ Optimal Team:
 ## Dependencies
 - `requests`: For fetching data from the PokéAPI.
 - `numpy`: For matrix and numerical computations.
+- `matplotlib`: For generating visualizations (heatmaps and bar charts).
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
@@ -112,3 +131,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ---
 Feel free to reach out for any questions or collaboration!
+
