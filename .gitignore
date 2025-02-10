@@ -1,0 +1,35 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environment folder
+venv/
+env/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore dataset files
+data/*.json
+
+# Ignore log files and temp files
+*.log
+*.tmp
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+*.swp
+
+# Ignore SQLite database (if used)
+*.db
+
+# Ignore Jupyter Notebook checkpoints (if used in exploration)
+.ipynb_checkpoints/
+
+# Ignore test coverage reports
+.coverage
+coverage.xml
+htmlcov/
